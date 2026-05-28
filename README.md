@@ -32,4 +32,10 @@ https://github.com/lacsclyne/cardgamebiga.git
 
 ## Automation Notes
 
-Linear and Symphony should treat `docs/backlog.md` and `docs/automation.md` as the first source of truth until their live integrations are connected.
+Linear and Symphony should treat `docs/backlog.md`, `docs/core_gameplay_spec.md`, and `docs/automation.md` as the first source of truth.
+
+CardGameA uses the existing local Symphony installation from `Q:\codex\.omx\symphony-local`. Start it for this project with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\start-cardgamea-symphony.ps1
+```

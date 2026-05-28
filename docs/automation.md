@@ -6,16 +6,24 @@ Use Linear for issue tracking and Symphony for coordinated execution while keepi
 
 ## Current Integration Status
 
-No callable Linear or Symphony connector is currently exposed in this Codex session. Until those are connected, automation should read from these files:
+CardGameA has a Linear project and reuses the local Symphony setup already used by the `rance` workspace.
+
+- Linear project slug: `cardgamea-3f851a07e18a`
+- Linear project URL: `https://linear.app/lacsclyne/project/cardgamea-3f851a07e18a/overview`
+- GitHub repository: `https://github.com/lacsclyne/cardgamebiga.git`
+- Local Symphony config: `Q:\codex\.omx\symphony-local`
+- CardGameA Symphony launcher: `scripts/start-cardgamea-symphony.ps1`
+
+Automation should read from these files:
 
 - `docs/game_design_brief.md`
 - `docs/core_gameplay_spec.md`
 - `docs/architecture.md`
 - `docs/backlog.md`
 
-## Suggested Linear Structure
+## Linear Structure
 
-Project: `Card Game Biga`
+Project: `CardGameA`
 
 Milestones:
 
@@ -46,6 +54,22 @@ Issue labels:
    - Files changed
    - Manual test notes
    - Follow-up tasks
+
+## Starting Symphony For CardGameA
+
+Run a preflight check:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\start-cardgamea-symphony.ps1 -PreflightOnly
+```
+
+Start the CardGameA runner:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\start-cardgamea-symphony.ps1
+```
+
+This generates a CardGameA-specific Symphony workflow without overwriting the existing `rance` workflow.
 
 ## Branch Naming
 

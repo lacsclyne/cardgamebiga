@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Symphony Issue"
+  short_description: "Draft Linear issues for Symphony runs."
+  default_prompt: "Use $create-symphony-issue to turn this request into a clear Symphony-ready Linear issue."
