@@ -1,0 +1,25 @@
+# Godot
+.godot/
+*.import
+export.cfg
+export_presets.cfg
+
+# Imported assets
+.import/
+
+# Build outputs
+build/
+dist/
+exports/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+
+# Local automation/session state
+.omx/logs/
+.omx/state/
