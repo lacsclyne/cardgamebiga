@@ -6,12 +6,17 @@ Use Linear for issue tracking and Symphony for coordinated execution while keepi
 
 ## Current Integration Status
 
-CardGameA has a Linear project and reuses the local Symphony setup already used by the `rance` workspace.
+CardGameA has a Linear project and reuses the shared local Symphony installation already used by the `rance` workspace. Runtime state is isolated per project.
 
 - Linear project slug: `cardgamea-3f851a07e18a`
 - Linear project URL: `https://linear.app/lacsclyne/project/cardgamea-3f851a07e18a/overview`
 - GitHub repository: `https://github.com/lacsclyne/cardgamebiga.git`
-- Local Symphony config: `Q:\codex\.omx\symphony-local`
+- Shared Symphony installation: `Q:\codex\.omx\symphony-local`
+- CardGameA runtime root: `Q:\codex\.omx\projects\cardgamea`
+- CardGameA workspaces: `Q:\codex\.omx\projects\cardgamea\workspaces`
+- CardGameA logs: `Q:\codex\.omx\projects\cardgamea\logs`
+- CardGameA temp files: `Q:\codex\.omx\projects\cardgamea\tmp`
+- CardGameA dashboard: `http://127.0.0.1:4100/`
 - CardGameA Symphony launcher: `scripts/start-cardgamea-symphony.ps1`
 
 Automation should read from these files:
@@ -20,6 +25,7 @@ Automation should read from these files:
 - `docs/core_gameplay_spec.md`
 - `docs/architecture.md`
 - `docs/backlog.md`
+- `docs/symphony_project_isolation.md`
 
 ## Linear Structure
 
@@ -70,6 +76,8 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start-cardgamea-symphony.ps1
 ```
 
 This generates a CardGameA-specific Symphony workflow without overwriting the existing `rance` workflow.
+
+The default CardGameA port is `4100`, so `rance` can keep using `4000`.
 
 ## Branch Naming
 

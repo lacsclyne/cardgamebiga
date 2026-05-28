@@ -34,8 +34,12 @@ https://github.com/lacsclyne/cardgamebiga.git
 
 Linear and Symphony should treat `docs/backlog.md`, `docs/core_gameplay_spec.md`, and `docs/automation.md` as the first source of truth.
 
-CardGameA uses the existing local Symphony installation from `Q:\codex\.omx\symphony-local`. Start it for this project with:
+CardGameA uses the existing local Symphony installation from `Q:\codex\.omx\symphony-local`, with isolated runtime state under `Q:\codex\.omx\projects\cardgamea`.
+
+Start it for this project with:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\start-cardgamea-symphony.ps1
 ```
+
+The default dashboard is `http://127.0.0.1:4100/`.

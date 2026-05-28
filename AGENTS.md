@@ -5,13 +5,17 @@ This is the real `CardGameA` project workspace.
 ## Paths
 
 - Main repository: `Q:\codex\cardgamea`
-- Symphony local config: `Q:\codex\.omx\symphony-local`
-- Symphony workspaces: `Q:\codex\.omx\workspaces-cardgamea`
-- Symphony dashboard: `http://127.0.0.1:4000/`
+- Shared Symphony installation: `Q:\codex\.omx\symphony-local`
+- CardGameA runtime root: `Q:\codex\.omx\projects\cardgamea`
+- CardGameA workflow: `Q:\codex\.omx\projects\cardgamea\WORKFLOW.generated.md`
+- CardGameA workspaces: `Q:\codex\.omx\projects\cardgamea\workspaces`
+- CardGameA logs: `Q:\codex\.omx\projects\cardgamea\logs`
+- CardGameA temp files: `Q:\codex\.omx\projects\cardgamea\tmp`
+- Symphony dashboard: `http://127.0.0.1:4100/`
 
 ## Symphony
 
-Symphony is configured as a local long-running runner for this project by reusing the existing local Symphony installation.
+Symphony is configured as a local long-running runner for this project. It reuses the shared Symphony installation and credentials, but its workflow, workspace, logs, temp files, and dashboard port are isolated from other projects.
 
 - Linear project slug: `cardgamea-3f851a07e18a`
 - Linear project URL: `https://linear.app/lacsclyne/project/cardgamea-3f851a07e18a/overview`
