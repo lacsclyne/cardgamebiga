@@ -16,11 +16,21 @@ The current gameplay supports a small Slay-the-Spire-style loop: start a fight, 
 
 ## Local Setup
 
-1. Install Godot 4.3 or newer.
+1. Install Godot 4.6.3 or newer.
 2. Open this folder as a Godot project.
 3. Run the main scene.
 
-If Godot is available on the command line, a future test command can be added for the scripts in `tests`.
+Headless smoke check:
+
+```powershell
+godot --headless --path . --script res://tests/e2e_spire_demo.gd
+```
+
+Local verified binary:
+
+```text
+Q:\codex\.omx\tools\godot-4.6.3\Godot_v4.6.3-stable_win64_console.exe
+```
 
 ## Repository
 

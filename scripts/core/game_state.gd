@@ -1,6 +1,8 @@
 class_name GameState
 extends RefCounted
 
+const PlayerStateScript := preload("res://scripts/core/player_state.gd")
+
 enum MatchPhase {
 	NOT_STARTED,
 	PLAYER_TURN,
@@ -15,18 +17,18 @@ const ENEMY_STARTING_HEALTH := 42
 const ENEMY_INTENTS := [6, 8, 10]
 
 var rng := RandomNumberGenerator.new()
-var player := PlayerState.new()
-var opponent := PlayerState.new()
+var player := PlayerStateScript.new()
+var opponent := PlayerStateScript.new()
 var phase: MatchPhase = MatchPhase.NOT_STARTED
 var turn_number: int = 0
 var winner_name: String = ""
 var enemy_intent_damage: int = 0
 var last_log: String = "Press Start Run to begin."
 
-func start(seed_value: int, player_deck: Array[CardData], _opponent_deck: Array[CardData]) -> void:
+func start(seed_value: int, player_deck: Array, _opponent_deck: Array = []) -> void:
 	rng.seed = seed_value
 	player.setup("Ironclad", player_deck, rng, PLAYER_STARTING_HEALTH)
-	opponent.setup("Training Cultist", opponent_deck, rng, ENEMY_STARTING_HEALTH)
+	opponent.setup("Training Cultist", [], rng, ENEMY_STARTING_HEALTH)
 	turn_number = 1
 	winner_name = ""
 	enemy_intent_damage = _next_enemy_intent()
@@ -55,7 +57,7 @@ func play_card(hand_index: int) -> bool:
 		last_log = "That card is no longer in hand."
 		return false
 
-	var card := player.hand[hand_index]
+	var card = player.hand[hand_index]
 	if not card.is_playable(player.energy):
 		last_log = "Not enough energy for %s." % card.display_name
 		return false
@@ -71,7 +73,7 @@ func play_card(hand_index: int) -> bool:
 		player.gain_block(card.block)
 		log_lines.append("%s grants %d block." % [card.display_name, card.block])
 
-	var discarded: Array[CardData] = []
+	var discarded: Array = []
 	discarded.append(card)
 	player.deck.discard(discarded)
 	last_log = "\n".join(log_lines)
