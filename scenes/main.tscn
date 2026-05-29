@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cardgamebiga_main"]
+[gd_scene load_steps=3 format=3 uid="uid://cardgamebiga_main"]
 
 [ext_resource type="Script" path="res://scripts/ui/main.gd" id="1_main"]
+[ext_resource type="Texture2D" path="res://resources/characters/hero_swimsuit.png" id="2_hero"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -17,10 +18,10 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 32.0
-offset_top = 28.0
+offset_top = 12.0
 offset_right = -32.0
-offset_bottom = -28.0
-theme_override_constants/separation = 14
+offset_bottom = -12.0
+theme_override_constants/separation = 8
 
 [node name="Header" type="HBoxContainer" parent="Root"]
 layout_mode = 2
@@ -29,7 +30,7 @@ theme_override_constants/separation = 16
 [node name="Title" type="Label" parent="Root/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 34
+theme_override_font_sizes/font_size = 28
 text = "Card Game Biga: Spire Demo"
 
 [node name="StartButton" type="Button" parent="Root/Header"]
@@ -39,10 +40,11 @@ text = "Start Run"
 
 [node name="Status" type="Label" parent="Root"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 16
 text = "Ready."
 
 [node name="Battlefield" type="HBoxContainer" parent="Root"]
+custom_minimum_size = Vector2(0, 330)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 18
@@ -51,28 +53,53 @@ theme_override_constants/separation = 18
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PlayerState" type="Label" parent="Root/Battlefield/PlayerPanel"]
+[node name="PlayerBox" type="VBoxContainer" parent="Root/Battlefield/PlayerPanel"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_constants/separation = 10
+
+[node name="PlayerVisual" type="TextureRect" parent="Root/Battlefield/PlayerPanel/PlayerBox"]
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_hero")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PlayerState" type="Label" parent="Root/Battlefield/PlayerPanel/PlayerBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
 text = "Player"
 
 [node name="EnemyPanel" type="PanelContainer" parent="Root/Battlefield"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="EnemyState" type="Label" parent="Root/Battlefield/EnemyPanel"]
+[node name="EnemyBox" type="VBoxContainer" parent="Root/Battlefield/EnemyPanel"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_constants/separation = 10
+
+[node name="EnemyVisual" type="Label" parent="Root/Battlefield/EnemyPanel/EnemyBox"]
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 38
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "Training Cultist"
+
+[node name="EnemyState" type="Label" parent="Root/Battlefield/EnemyPanel/EnemyBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
 text = "Enemy"
 
 [node name="HandLabel" type="Label" parent="Root"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 text = "Hand"
 
 [node name="Hand" type="HBoxContainer" parent="Root"]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 132)
+custom_minimum_size = Vector2(0, 118)
 theme_override_constants/separation = 10
 
 [node name="ActionRow" type="HBoxContainer" parent="Root"]
@@ -86,6 +113,6 @@ text = "End Turn"
 
 [node name="Log" type="Label" parent="Root"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 14
 autowrap_mode = 2
 text = "Play cards to damage the enemy or gain block."

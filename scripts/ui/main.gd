@@ -4,8 +4,8 @@ const GameStateScript := preload("res://scripts/core/game_state.gd")
 const CardDataScript := preload("res://scripts/data/card_data.gd")
 
 @onready var status_label: Label = $Root/Status
-@onready var player_label: Label = $Root/Battlefield/PlayerPanel/PlayerState
-@onready var opponent_label: Label = $Root/Battlefield/EnemyPanel/EnemyState
+@onready var player_label: Label = $Root/Battlefield/PlayerPanel/PlayerBox/PlayerState
+@onready var opponent_label: Label = $Root/Battlefield/EnemyPanel/EnemyBox/EnemyState
 @onready var start_button: Button = $Root/Header/StartButton
 @onready var hand_container: HBoxContainer = $Root/Hand
 @onready var end_turn_button: Button = $Root/ActionRow/EndTurnButton
@@ -94,7 +94,7 @@ func _refresh_hand() -> void:
 	for i in range(game.player.hand.size()):
 		var card = game.player.hand[i]
 		var button = Button.new()
-		button.custom_minimum_size = Vector2(150, 120)
+		button.custom_minimum_size = Vector2(150, 108)
 		button.text = "%s\nCost %d\n%s\n%s" % [
 			card.display_name,
 			card.cost,
