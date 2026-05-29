@@ -8,6 +8,7 @@
 - [x] Add core match state skeleton.
 - [x] Add planning docs for automation.
 - [x] Add core gameplay spec template.
+- [x] Add a tiny deckbuilding combat demo.
 
 ## Milestone 1: Rules Prototype
 

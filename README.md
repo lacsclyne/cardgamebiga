@@ -6,13 +6,13 @@ Godot-driven card battle game prototype.
 
 This repository contains a minimal Godot 4 project with:
 
-- A playable prototype shell in `scenes/main.tscn`
+- A tiny deckbuilding combat demo in `scenes/main.tscn`
 - Core match state in `scripts/core`
 - Card data definitions in `scripts/data`
 - A tiny UI controller in `scripts/ui/main.gd`
 - Project planning docs in `docs`
 
-The current gameplay is intentionally skeletal: start a match, draw cards, and pass turns. The real rules can be layered into the core scripts without making the UI carry game logic.
+The current gameplay supports a small Slay-the-Spire-style loop: start a fight, draw a hand, spend energy on attack or block cards, read the enemy intent, end the turn, and play until victory or defeat.
 
 ## Local Setup
 
